@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>GSP Tourism - All Customer Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+</head>
+
+<body style="background-color: #b3d7ff">
+<header>
+    <div class="navbar">
+        <div class="col-sm-4">
+            <h1>GSP Tourism</h1>
+        </div>
+        <div class="col-sm-8" style="color:yellow">
+            <h1>Welcome Admin</h1>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul class="">
+        <li><a href="{{ url_for('adminLogin') }}">Home</a></li>
+        <li><a href="{{ url_for('adminAllBookings') }}">All Bookings</a></li>
+    </ul>
+</nav>
+
+
+<div class="row" style="background-color: orangered; color: deepskyblue;">
+
+    <div class="col-sm-1"></div>
+    <div class="col-sm-11">
+        <h4>Bookings are listed below please check it out......</h4>
+    </div>
+</div>
+
+    <table class="table-bordered table table-striped">
+        <tr>
+            <th>Booking ID</th>
+            <th>Customer Name</th>
+            <th>Departing city</th>
+            <th>Destination city</th>
+            <th>Vehicle</th>
+            <th>Date</th>
+            <th>Tourist Spot</th>
+            <th>Total Expense</th>
+        </tr>
+
+        {% for row in result_set %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6][:-1] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>
+                    <a href="{{ url_for('adminViewBill', booking_id=row[0]) }}">
+                        <input type="submit" class="btn btn-primary" value="Generate Bill">
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ url_for('adminDelete', booking_id=row[0]) }}">
+                        <input type="submit" class="btn btn-primary" value="Delete">
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+<br>
+<a href="{{ url_for('adminLogin') }}">logout</a>
+<br><br><br><br>
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script></body>
+</html>

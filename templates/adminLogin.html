@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSP Tourism - Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/bikencar.avif') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center bottom -270px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>GSP Tourism</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Customer Login</a></li>
+        <li><a href="{{ url_for('adminLoginpopup2') }}">All Bookings</a></li>
+    </ul>
+</nav>
+<center>
+    <main>
+        <form method="POST" action="/adminLogin_">
+            <section style="padding-right: 100px;  color: #00008b; margin-top: -20px">
+                    <h2>Admin Login</h2>
+                    <form><table><tr>
+
+                           <td> <label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+
+                    </tr><tr>
+
+                        <td>   <label for="password">Password:</label>
+                        </td><td>   <input type="password" id="password" name="password" required></td>
+
+                    </tr><tr>
+
+                        <td></td><td><input type="submit" value="Login" class="btn">
+                         <input type="reset" value="Reset" class="btn"></td>
+                      </tr>
+                    </table>
+                    </form>
+                </section>
+        </form>
+    </main>
+</center>
+
+
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script>
+</body>
+</html>

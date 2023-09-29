@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>GSP Tourism - Book Your Trip</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcWkWYMMgXtN9RZvIvkhRQB1ed0QpTBws&callback=initMap" async defer></script>
+</head>
+<body style="background-color: #b3d7ff">
+<header>
+    <div class="navbar">
+        <div class="col-sm-4">
+            <h1>GSP Tourism</h1>
+        </div>
+        <div class="col-sm-8" style="color:yellow">
+            <h1>Welcome, {{ customer_name }}</h1>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+        <li><a href="{{ url_for('bookingsall') }}">Bookings</a></li>
+
+    </ul>
+</nav>
+
+<main>
+    <section><form id="trip-form" method="POST" action="/MumbaiTourist">
+        <center><h2>Book Your Trip to MUMBAI</h2><br>
+
+                <div class="font-weight-bold" style="font-size: 25px">
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-3">
+                            <label for="departing-city">Select Departing City:</label>
+                            <select id="departing-city" name="departing-city">
+                                <option value="">select departing city</option>
+                                <option value="Bangalore">Bangalore (982 km)</option>
+                                <option value="Pune">Pune (154 km)</option>
+                                <option value="Lucknow">Lucknow (1378 km)</option>
+                                <option value="Chennai">Chennai (1294 km)</option>
+                                <option value="Delhi">Delhi (1397 km)</option>
+                                <option value="Hyderabad">Hyderabad (707 km)</option>
+                                <option value="Jaipur">Jaipur (1165 km)</option>
+                                <option value="Kolkata">Kolkata (1886 km)</option>
+                                <option value="Udupi">Udupi (841 km)</option>
+
+                                <!-- Add more options for other cities -->
+                            </select></div><div class="col-sm-2"></div>
+                        <div class="col-sm-3">
+                            <label for="vehicle">Select Traveling Mode: </label>
+                            <select id="vehicle" name="vehicle">
+                                <option>select vehicle</option>
+                                <option value="Bike">Bike</option>
+                                <option value="Car">Car</option>
+                            </select></div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+                <br>
+                <div class="font-weight-bold" style="font-size: 25px">
+                    <label for="departure-date">Select Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure-date">
+                </div>
+        </center>
+        <br>
+        <div class="font-weight-bold" >
+
+            <center><label style="font-size: 50px">Select Tourist Spots:</label><br></center>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/siddhivinayak-temple-mumbai.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot1" name="tourist-spot" value="Shree Siddhivinayak Temple" data-rate="50">
+                        <label for="spot1" style="font-size: x-large">Shree Siddhivinayak Temple - &#8377 50</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/CHATRAPATI_SHIVAJI_MAHARAJ_TERMINUS.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot2" name="tourist-spot" value="Chhatrapati Shivaji Maharaj Terminus" data-rate="30">
+                        <label for="spot2" style="font-size: x-large">Chhatrapati Shivaji Maharaj Terminus - &#8377 30</label></div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/kanheri.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot3" name="tourist-spot" value="Kanheri Caves" data-rate="40">
+                        <label for="spot3" style="font-size: x-large">Kanheri Caves - &#8377 40</label>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/chhatrapati-shivaji-maharaj-vastu-sangrahalaya-prince-of-wales-museum-mumbai-indian-tourism-entry-fee-timings-holidays-reviews-header.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot4" name="tourist-spot" value="Chhatrapati Shivaji Maharaj Vastu Sangrahalaya" data-rate="35">
+                        <label for="spot4" style="font-size: x-large">Chhatrapati Shivaji Maharaj Vastu Sangrahalaya - &#8377 35</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/global-vipassana-pagoda.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot5" name="tourist-spot" value="Global Vipassana Pagoda" data-rate="30">
+                        <label for="spot5" style="font-size: x-large">Global Vipassana Pagoda - &#8377 30</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/elephanta.webp') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot6" name="tourist-spot" value="Elephanta Caves" data-rate="40">
+                        <label for="spot6" style="font-size: 23px">Elephanta Caves - &#8377 40</label>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/Sanjay_Gandhi_National_Park.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot7" name="tourist-spot" value="Sanjay Gandhi National Park" data-rate="50">
+                        <label for="spot7" style="font-size: x-large">Sanjay Gandhi National Park - &#8377 50</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/99986954.webp') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot8" name="tourist-spot" value="EsselWorld" data-rate="25">
+                        <label for="spot8" style="font-size: x-large">EsselWorld - &#8377 25</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/GettyImages-1008831236-5c65d6bf4cedfd00014aa310.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot9" name="tourist-spot" value="Marine Drive" data-rate="35">
+                        <label for="spot9" style="font-size: 23px">Marine Drive - &#8377 35</label>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/international-society-for-krishna-consciousness-juhu-mumbai-charitable-trusts-r62iemw3fs.avif') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot10" name="tourist-spot" value="ISKCON - Juhu" data-rate="30">
+                        <label for="spot10" style="font-size: x-large">ISKCON - Juhu - &#8377 30</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/babylonian-oasis-artist-rendering.webp') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot11" name="tourist-spot" value="Hanging Gardens" data-rate="45">
+                        <label for="spot11" style="font-size: x-large">Hanging Gardens - &#8377 45</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="{{ url_for('static', filename='images/mumbai/mahalakshmi-temple.jpg') }}" alt="" height="170px" width="270px"><br>
+                        <input type="checkbox" id="spot12" name="tourist-spot" value="Shree Mahalakshmi Temple" data-rate="25">
+                        <label for="spot12" style="font-size: 23px">Shree Mahalakshmi Temple - &#8377 25</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="font-weight-bold" style="font-size:  x-large">
+            <label for="total-price">Total Price:</label>
+            <span id="total-price" name="total-price">&#8377 0</span>
+            <input type="hidden" id="total-price-input" name="total-price-input">
+        </div>
+
+        <div>
+            <input type="submit" value="Submit" class="btn">
+            <input type="reset" value="Reset" class="btn">
+        </div>
+        <br><br><br><br>
+
+        <script>
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: 0, lng: 0 }, // Set the initial map center
+                    zoom: 4 // Set the initial map zoom level
+                });
+
+                // Add markers for selected cities here
+                // Example:
+                const city1 = { lat: 40.7128, lng: -74.0060 };
+                const city2 = { lat: 34.0522, lng: -118.2437 };
+                const city3 = { lat: 51.5074, lng: -0.1278 };
+
+                //markers for tourist spots
+                const spot1 = { lat: 40.7128, lng: -74.0060 };
+                const spot2 = { lat: 34.0522, lng: -118.2437 };
+                const spot3 = { lat: 51.5074, lng: -0.1278 };
+                // Use the data from the form to add markers for the selected cities
+                // Example
+                // const selectedCities = [city1, city2, city3];
+                // selectedCities.forEach((city) => {
+                //     new google.maps.Marker({
+                //         position: city,
+                //         map: map,
+                //         title: "City Name",
+                //     });
+                // });
+            }
+        </script>
+</form>
+    </section>
+</main>
+
+
+
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+<script>
+
+    // Get the current date in the format "YYYY-MM-DD"
+    const currentDate = new Date().toISOString().split('T')[0];
+
+    // Set the min attribute of the date input field to the current date
+    document.getElementById('departure-date').min = currentDate;
+
+
+    // Calculate total price when checkboxes are clicked and departure date is selected
+    const checkboxes = document.querySelectorAll('input[name="tourist-spot"]');
+    const totalPrice = document.getElementById('total-price');
+    const departureDateInput = document.getElementById('departure-date');
+    const departingCityInput = document.getElementById('departing-city');
+    const vehicleInput=document.getElementById('vehicle');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateTotalPrice);
+    });
+
+    departureDateInput.addEventListener('change', updateTotalPrice);
+    departingCityInput.addEventListener('change', updateTotalPrice);
+    vehicleInput.addEventListener('change', updateTotalPrice);
+
+    function updateTotalPrice() {
+        let total = 0;
+
+
+        // Additional cost based on departing city selectionlect departing city
+
+        const departingCity = departingCityInput.value;
+        if (departingCity === 'Bangalore') {
+            total += 982;
+        } else if (departingCity === 'Pune') {
+            total += 154;
+        } else if (departingCity === 'Lucknow') {
+            total += 1378;
+        }else if (departingCity === 'Chennai') {
+            total += 1294;
+        }else if (departingCity === 'Delhi') {
+            total += 1397;
+        }else if (departingCity === 'Hyderabad') {
+            total += 707;
+        }else if (departingCity === 'Jaipur') {
+            total += 1165;
+        }else if (departingCity === 'Kolkata') {
+            total += 1886;
+        }else if (departingCity === 'Udupi') {
+            total += 841;
+        }
+
+        //vehicle selection cost
+        const vehi = vehicleInput.value;
+        if (vehi === 'Bike') {
+            total *= 3;
+        } else if (vehi === 'Car') {
+            total *= 6;
+        }
+
+        const departureDate = new Date(departureDateInput.value);
+        const currentDate = new Date();
+        const timeDifference = departureDate.getTime() - currentDate.getTime();
+        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+        if (daysDifference >= 15) {
+            total += 20;
+        } else if (daysDifference === 14) {
+            total += 30;
+        } else if (daysDifference === 13) {
+            total += 50;
+        } else if (daysDifference === 12) {
+            total += 80;
+        } else if (daysDifference === 11) {
+            total += 120;
+        } else if (daysDifference === 10) {
+            total += 150;
+        } else if (daysDifference === 9) {
+            total += 200;
+        } else if (daysDifference === 8) {
+            total += 230;
+        } else if (daysDifference === 7) {
+            total += 260;
+        } else if (daysDifference === 6) {
+            total += 300;
+        } else if (daysDifference === 5) {
+            total += 340;
+        } else if (daysDifference === 4) {
+            total += 370;
+        } else if (daysDifference === 3) {
+            total += 410;
+        } else if (daysDifference === 2) {
+            total += 450;
+        } else if (daysDifference === 1) {
+            total += 500;
+        }
+        checkboxes.forEach((cb) => {
+            if (cb.checked) {
+            total += parseInt(cb.dataset.rate);
+        }
+    });
+    totalPrice.textContent = `₹${total}`; // Use ₹ for the Indian Rupee symbol
+    document.getElementById('total-price-input').value = totalPrice.textContent;
+    }
+</script>
+<!--<script>-->
+<!--// Calculate total price when checkboxes are clicked-->
+<!--const checkboxes = document.querySelectorAll('input[name="tourist-spot"]');-->
+<!--const totalPrice = document.getElementById('total-price');-->
+
+<!--checkboxes.forEach((checkbox) => {-->
+<!--checkbox.addEventListener('change', () => {-->
+<!--let total = 0;-->
+<!--checkboxes.forEach((cb) => {-->
+<!--if (cb.checked) {-->
+<!--total += parseInt(cb.dataset.rate);-->
+<!--}-->
+<!--});-->
+<!--totalPrice.textContent = `₹${total}`; // Use ₹ for the Indian Rupee symbol-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script></body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSP Tourism - Destinations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+</head>
+<body  style="background-color: #b3d7ff">
+<header>
+    <div class="navbar">
+        <div class="col-sm-4">
+            <h1>GSP Tourism</h1>
+        </div>
+        <div class="col-sm-8" style="color:yellow">
+            <h1>Welcome, {{ customer_name }}</h1>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+        <li><a href="{{ url_for('bookingsall') }}">Bookings</a></li>
+        
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2>Explore Destinations</h2>
+        <p>Choose your desired tourist destinations for an amazing travel experience.</p>
+    </section>
+
+    <section>
+        <h2>Popular Destinations</h2>
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/udupi.jpg') }}" alt="udupi">
+            <h3>Udupi</h3>
+            <p>Udupi is a city in the Indian state of Karnataka.
+                Udupi is situated about 55 km (34 mi) north of the educational,
+                commercial and industrial hub of Mangalore and about 422 km (262 mi) west of state capital Bangalore by road.</p>
+            <a href="{{ url_for('udupi') }}" class="btn">Book Now</a>
+        </div>
+
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/bangalore.jpg') }}" alt="bangalore">
+            <h3>Bangalore</h3>
+            <p>Bangalore, officially Bengaluru, is the capital and largest city of the southern Indian state of Karnataka.
+                It has a population of more than 8 million and a metropolitan population of around 11 million,
+                making it the third most populous city and fifth most populous urban agglomeration in India,
+                as well as second largest urban agglomeration in South India, and the 27th largest city in the world.
+                Located on the Deccan Plateau, at a height of over 900 m (3,000 ft) above sea level,
+                Bangalore has a pleasant climate throughout the year, with its parks and green spaces earning
+                it the reputation as the "Garden City" of India.
+                Its elevation is the highest among the major cities of India.</p>
+            <a href="{{ url_for('bangalore') }}" class="btn">Book Now</a>
+        </div>
+
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/pune.jpg') }}" alt="pune">
+            <h3>Pune</h3>
+            <p>Pune, previously known as Poona, is a city in Maharashtra state in Deccan plateau in Western India.
+                It is the administrative headquarters of the Pune district, and of Pune division.
+                The city of Pune is part of Pune Metropolitan Region.
+                Pune is one of the largest IT hubs in India.
+                It is also one of the most important automobile and manufacturing hubs of India.
+                Pune is often referred to as "Oxford of the East" because of highly regarded educational institutions in the city.
+                It has been ranked "the most liveable city in India" several times.</p>
+            <a href="{{ url_for('pune') }}" class="btn">Book Now</a>
+        </div>
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/mumbai.jpg') }}" alt="mumbai">
+            <h3>Mumbai</h3>
+            <p>Bangalore, officially Bengaluru, is the capital and largest city of the southern Indian state of Karnataka.
+                It has a population of more than 8 million and a metropolitan population of around 11 million,
+                making it the third most populous city and fifth most populous urban agglomeration in India,
+                as well as second largest urban agglomeration in South India, and the 27th largest city in the world.
+                Located on the Deccan Plateau, at a height of over 900 m (3,000 ft) above sea level,
+                Bangalore has a pleasant climate throughout the year, with its parks and green spaces earning
+                it the reputation as the "Garden City" of India.
+                Its elevation is the highest among the major cities of India.</p>
+            <a href="{{ url_for('mumbai') }}" class="btn">Book Now</a>
+        </div>
+
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/chennai.jpg') }}" alt="chennai">
+            <h3>Chennai</h3>
+            <p>Chennai formerly known as Madras is the capital city of Tamil Nadu, the southernmost Indian state.
+                It is the state's primate city both in area and population and is located on the Coromandel Coast of the Bay of Bengal.
+                According to the 2011 Indian census, Chennai is the sixth-most populous city in India and forms the fourth-most populous
+                urban agglomeration. Incorporated in 1866, the Greater Chennai Corporation is the oldest municipal corporation of India
+                and the second oldest in the world after London.</p>
+            <a href="{{ url_for('chennai') }}" class="btn">Book Now</a>
+        </div>
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/jaipur.jpg') }}" alt="jaipur">
+            <h3>Jaipur</h3>
+            <p>Jaipur formerly Jeypore, is the capital and largest city of the Indian state of Rajasthan.
+                As of 2011, the city had a population of 3.1 million, making it the tenth most populous city in the country.
+                Jaipur is also known as the Pink City, due to the dominant colour scheme of its buildings.
+                It is also known as the Paris of India, and C. V. Raman called it the Island of Glory.
+                It is located 268 km (167 miles) from the national capital New Delhi. Jaipur was founded in 1727 by the Kachhwaha
+                Rajput ruler Jai Singh II,[11][12] the ruler of Amer, after whom the city is named.
+                It was one of the earliest planned cities of modern India, designed by Vidyadhar Bhattacharya.
+                During the British Colonial period, the city served as the capital of Jaipur State.
+                After independence in 1947, Jaipur was made the capital of the newly formed state of Rajasthan.</p>
+            <a href="{{ url_for('jaipur') }}" class="btn">Book Now</a>
+        </div>
+
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/kolkata.jpg') }}" alt="kolkata">
+            <h3>Kolkata</h3>
+            <p>Kolkata also known as Calcutta which was the official name until 2001 is the capital and largest city of the Indian state of West Bengal.
+                It is on the eastern bank of the Hooghly River 80 km (50 mi) west of the border with Bangladesh.
+                It is the primary business, commercial, and financial hub of Eastern India and the main port of communication for North-East India.
+                According to the 2011 Indian census, Kolkata is the seventh-most populous city in India, with a population of 45 lakh (4.5 million)
+                residents within the city. It is a part of Kolkata Metropolitan Area (or known as Greater Kolkata) which has a population of over
+                1.41 crore (14.1 million) residents making it the 3rd most populous metropolitan area in India also being 13th in Asia and 16th
+                in the world. In 2021, the Kolkata metropolitan area crossed 1.5 crore (15 million) registered voters. The Port of Kolkata is
+                India's oldest operating port and its sole major riverine port. Kolkata is regarded as the cultural capital of India.
+                Kolkata is the second largest Bengali-speaking city after Dhaka. It has the highest number of nobel laureates among all
+                cities in India.</p>
+            <a href="{{ url_for('kolkata') }}" class="btn">Book Now</a>
+        </div>
+
+
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/lucknow.jpg') }}" alt="lucknow">
+            <h3>Lucknow</h3>
+            <p>Lucknow is the capital and the largest city of the Indian state of Uttar Pradesh and it is also the second largest urban agglomeration in Uttar Pradesh.
+                Lucknow is the administrative headquarters of the eponymous district and division.
+                Having a population of 2.8 million as per 2011 census, it is the eleventh most populous city and the
+                twelth-most populous urban agglomeration of India. Lucknow has always been a multicultural city that
+                flourished as a North Indian cultural and artistic hub, and the seat of power of Nawabs in the 18th
+                and 19th centuries.[10] It continues to be an important centre of governance, administration, education,
+                commerce, aerospace, finance, pharmaceuticals, technology, design, culture, tourism, music and poetry.</p>
+            <a href="{{ url_for('lucknow') }}" class="btn">Book Now</a>
+        </div>
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/hyderabad.jpg') }}" alt="hyderabad">
+            <h3>Hyderabad</h3>
+            <p>Hyderabad is the capital and largest city of the Indian state of Telangana. It occupies 650 km2 (250 sq mi)
+                on the Deccan Plateau along the banks of the Musi River, in the northern part of Southern India.
+                With an average altitude of 542 m (1,778 ft), much of Hyderabad is situated on hilly terrain around artificial lakes,
+                including the Hussain Sagar lake, predating the city's founding, in the north of the city centre.
+                According to the 2011 Census of India, Hyderabad is the fourth-most populous city in India with a population
+                of 6.9 million residents within the city limits, and has a population of 9.7 million residents in the metropolitan region,
+                making it the sixth-most populous metropolitan area in India. With an output of US$74 billion,
+                Hyderabad has the fifth-largest urban economy in India.</p>
+            <a href="{{ url_for('hyderabad') }}" class="btn">Book Now</a>
+        </div>
+        <div class="destination-card">
+            <img src="{{ url_for('static', filename='images/delhi.jpg') }}" alt="delhi">
+            <h3>Delhi</h3>
+            <p>Delhi, officially the National Capital Territory (NCT) of Delhi,
+                is a city and a union territory of India containing New Delhi, the capital of India.
+                Straddling the Yamuna river, primarily its western or right bank,
+                Delhi shares borders with the state of Uttar Pradesh in the east and with the state of Haryana in the remaining directions.
+                The NCT covers an area of 1,484 square kilometres (573 sq mi).
+                According to the 2011 census, Delhi's city proper population was over 11 million,
+                while the NCT's population was about 16.8 million.Delhi's urban agglomeration,
+                which includes the satellite cities Ghaziabad, Faridabad,
+                Gurgaon and Noida in an area known as the National Capital Region (NCR),
+                has an estimated population of over 28 million,
+                making it the largest metropolitan area in India and the second-largest in the world (after Tokyo).</p>
+            <a href="{{ url_for('delhi') }}" class="btn">Book Now</a>
+        </div>
+    </section>
+</main>
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 Tourism Bus Simulator. All rights reserved.</p>
+</footer>
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script></body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSP Tourism - Customer Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/yellow.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center bottom -270px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>GSP Tourism</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('adminLogin') }}">Admin Login</a></li>
+        <li><a href="{{ url_for('indexpopup3') }}">Destinations</a></li>
+        <li><a href="{{ url_for('indexpopup4') }}">Bookings</a></li>
+
+    </ul>
+</nav>
+<center>
+    <main>
+        <a href="{{ url_for('register') }}" style="padding-left: 900px; margin-bottom: 40px">Dont have account? Register....</a>
+        <form method="POST" action="/Login">
+            <section style="padding-left: 300px;  color: #20c997; margin-top: -40px">
+                    <h2>Customer Login</h2>
+                    <form><table><tr>
+
+                           <td> <label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+
+                    </tr><tr>
+
+                        <td>   <label for="password">Password:</label>
+                        </td><td>   <input type="password" id="password" name="password" required></td>
+
+                    </tr><tr>
+
+                        <td></td><td><input type="submit" value="Login" class="btn">
+                         <input type="reset" value="Reset" class="btn"></td>
+                      </tr>
+                    </table>
+                    </form>
+                </section>
+        </form>
+    </main>
+</center>
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+
+</head>
+<body>
+<center>
+    <h1 style="color: blue">GSP Tourism</h1>
+    <form method="POST" action="/adminViewBill">
+        <h2>Customer Name: {{ row[1] }}</h2>
+        <table border="1" class="" style="font-size: 30px">
+            <tr>
+                <th>Departing city</th>
+                <th>{{ row[2] }}</th>
+            </tr>
+            <tr>
+                <th>Destination city</th>
+                <th>{{ row[3] }}</th>
+            </tr>
+            <tr>
+                <th>Vehicle</th>
+                <th>{{ row[4] }}</th>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <th>{{ row[5] }}</th>
+            </tr>
+            <tr>
+                <th>Tourist Spot</th>
+                <th>{{ row[6][:-1] }}</th>
+            </tr>
+            <tr>
+                <th>Total Expense</th>
+                <th>{{ row[7] }}</th>
+            </tr>
+
+        </table>
+        <br><br>
+
+        <table>
+            <tr>
+                <td>
+                    <a href="{{ url_for('adminAllBookings') }}">
+                        Back
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onclick="return false;">
+                        <button id="printButton" class="btn-primary"
+                                style="font-size: 25px; color: white; border-radius: 10px; padding: 0px 20px;">
+                            Print
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+<script>
+    document.getElementById("printButton").addEventListener("click", function() {
+        window.print();
+    });
+</script>
+</body>
+</html>

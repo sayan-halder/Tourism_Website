@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSP Tourism - Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+</head>
+<body style="background-color: #b3d7ff">
+<header>
+    <div class="navbar">
+        <div class="col-sm-4">
+            <h1>GSP Tourism</h1>
+        </div>
+        <div class="col-sm-8" style="color:yellow">
+            <h1>Booking Successfull</h1>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('destinations') }}">Destinations</a></li>
+        <li><a href="{{ url_for('bookingsall') }}">Bookings</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <h2>Your Bookings</h2>
+        <table border="1" class="table-bordered table table-striped table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Departing city</th>
+                <th>Destination city</th>
+                <th>Vehicle</th>
+                <th>Departure Date</th>
+                <th>Tourist Spot</th>
+                <th>Total Expense</th>
+            </tr>
+            <tr>
+                <td>{{ result[1] }}</td>
+                <td>{{ result[2] }}</td>
+                <td>{{ result[3] }}</td>
+                <td>{{ result[4] }}</td>
+                <td>{{ result[5] }}</td>
+                <td>{{ '<br>'.join(result[6])|safe }}</td>
+                <td>{{ result[7] }}</td>
+            </tr>
+        </table>
+
+    </section>
+</main>
+<a href="{{ url_for('index') }}">
+    <button>logout</button></a>
+<br><br><br><br><br><br><br><br><br>
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+<script src="../js/jquery_main.js"></script>
+<script src="../js/popper.js"></script>
+<script src="../js/bootstrap.js"></script></body>
+</html>

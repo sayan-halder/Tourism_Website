@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSP Tourism - Customer Registration</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/bike-and-car.avif') }}");
+            background-size: 1350px;
+            background-repeat: no-repeat;
+            background-position: center top 129px;
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>GSP Tourism</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('index') }}">Destinations</a></li>
+        <li><a href="{{ url_for('index') }}">Bookings</a></li>
+
+    </ul>
+</nav>
+
+<main>
+    <section style="padding-left: 200px; padding-top: 80px;">
+        <h2>Customer Registration</h2>
+        <form method="POST" action="/CustomerRegistration">
+            <table>
+            <tr>
+                <td><label for="fname">First Name:</label></td>
+                <td><input type="text" id="fname" name="fname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="lname">Last Name:</label></td>
+                <td><input type="text" id="lname" name="lname" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password" required></td>
+            </tr>
+
+            <tr><td></td>
+                <td>
+                    <input type="submit" value="Register" class="btn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="reset" value="Reset" class="btn">
+                </td>
+            </tr>
+            </table>
+        </form>
+    </section>
+</main>
+
+<footer class="fixed-bottom">
+    <p>&copy; 2023 GSP Tourism. All rights reserved.</p>
+</footer>
+
+<script src="js/jquery_main.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
